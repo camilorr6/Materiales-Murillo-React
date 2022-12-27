@@ -53,7 +53,7 @@ function Navegador() {
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button variant="outline-success">Búsqueda</Button>
+                  <Button variant="outline-success">Confirmar</Button>
                 </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

@@ -1,9 +1,16 @@
-const ItemListContainer = ({ greeting }) => {
+function Usuario(props){
     return(
-        <div className="p-2">
-            <h1>Bienvenidos a la Tienda Online!</h1>
-        </div>
+        <span>{props.name}</span>
     )
+    
 }
+
+function ItemListContainer(){
+    return (
+        <h1> Bienvenido <Usuario name="Camilo"/>!</h1>
+    )
+
+}
+
 
 export default ItemListContainer
