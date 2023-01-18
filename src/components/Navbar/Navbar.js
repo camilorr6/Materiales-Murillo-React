@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import CartWidget from '../Carrito/Carrito';
 import logo from '../../img/logo-materiales-murillo.png';
+import {Link} from "react-router-dom"
 
 function Navegador() {
 
@@ -33,17 +34,17 @@ function Navegador() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Página Principal</Nav.Link>
+                <Nav.Link href="#action1">Página Principal</Nav.Link>
                   <Nav.Link href="#action2">Tu Carrito</Nav.Link>
                   <NavDropdown
                     title="Categorias"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Construcción</NavDropdown.Item>
+                    <Link to='/category/construccion'><NavDropdown.Item href="#action3">Construcción</NavDropdown.Item></Link>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action3">Hogar</NavDropdown.Item>
+                    <Link to='/category/hogar'><NavDropdown.Item href="#action3">Hogar</NavDropdown.Item></Link>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action3">Herramientas y Maquinaria</NavDropdown.Item>                   
+                    <Link to='/category/herramientas-y-maquinaria'><NavDropdown.Item href="#action3">Herramientas y Maquinaria</NavDropdown.Item></Link>                   
                   </NavDropdown>
                 </Nav>
                 <Form className="d-flex">
