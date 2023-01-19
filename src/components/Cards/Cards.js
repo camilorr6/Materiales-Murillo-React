@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom'
 
 function Cards({id,nombre, img, descripcion}) {
+
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={img} />

@@ -12,9 +12,8 @@ function App() {
       <Navegador/>
         <Routes>
           <Route path="/" element={<ItemListContainer/>}/>
-          <Route path="/category/CategoryId" element={<ItemListContainer/>} />
-          <Route path="/Detail/productId" element={<ItemDetailContainer/>}/>
-          
+          <Route path='/category/:categoryId' element={<ItemListContainer/>} />
+          <Route path="/detail/:productId" element={<ItemDetailContainer/>} />
         </Routes>
       </BrowserRouter>
 

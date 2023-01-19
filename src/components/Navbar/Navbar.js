@@ -34,7 +34,7 @@ function Navegador() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="#action1">Página Principal</Nav.Link>
+                <Link to='/'>Página Principal</Link> 
                   <Nav.Link href="#action2">Tu Carrito</Nav.Link>
                   <NavDropdown
                     title="Categorias"

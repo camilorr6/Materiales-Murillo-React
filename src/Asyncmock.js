@@ -158,7 +158,7 @@ export const getProducts=(categoryId)=>{
 export const getProductsByCategory=(categoryId)=>{
     return new Promise ((resolve)=>{
         setTimeout(()=>{
-            resolve(products.filter(products.category === categoryId))
+            resolve(products.filter(prod=> prod.category ? prod.category===categoryId : false)) 
         },500)
     })
 }
@@ -166,7 +166,7 @@ export const getProductsByCategory=(categoryId)=>{
 export const getProductsById=(id)=>{
     return new Promise ((resolve)=>{
         setTimeout(()=>{
-            resolve(products.find(products.id === id))
+            resolve(products.find(prod=>prod.id === id))
         },500)
     })
 }
