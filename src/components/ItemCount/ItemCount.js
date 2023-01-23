@@ -1,35 +1,30 @@
-import { useState } from "react"
-import Button from 'react-bootstrap/Button';
 
-const ItemCount= ({initial = 1, stock})=>{
+import React, { useState } from 'react';
+import { Button } from "react-bootstrap"
 
-    let aumentarCantidad = ()=>{
-        if(count < stock){
-            setCount(prev=>prev + 1)
-        }
-        
+const Counter = ({ stock }) => {
+  const [count, setCount] = useState(1);
 
-    
+  const handleIncrement = () => {
+    if (count < stock) {
+      setCount(count + 1);
     }
-    
-    let reducirCantidad = () =>{
-        if(count>1){
-            setCount(prev=>prev - 1)
-        }
-        
-        
-    
-    }
-    
+  };
 
-    const [count,setCount] = useState(initial)
-    return(
-        <div class="col-2 d-flex">
-          <Button onClick={reducirCantidad}variant="outline-primary">-</Button>
-          <div>{count}</div>                      
-          <Button onClick={aumentarCantidad}variant="outline-primary">+</Button>
-          <Button variant="primary">Agregar al Carrito</Button>
-        </div>
-    )
-}
-export default ItemCount
+  const handleDecrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
+  return (
+    <div>
+      <Button onClick={handleDecrement } variant="outline-primary" className="me-2">-</Button>
+      <span className="me-2">{count}</span>
+      <Button onClick={handleIncrement} variant="outline-primary" className="me-2">+</Button>
+      <Button onClick={() => alert(`${count} items added to cart`)} variant="outline-success">Add to Cart</Button>
+    </div>
+  );
+};
+
+export default Counter;

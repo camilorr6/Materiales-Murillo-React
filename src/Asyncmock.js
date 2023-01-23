@@ -1,3 +1,20 @@
+import taladro from "img/taladro.jpg";
+import bolsaDeCemento from "img/bolsa-de-cemento.webp";
+import galonDePintura from "img/galon-de-pintura.jpg";
+import inodoro from "img/inodoro.jpg";
+import teja from "img/teja.jpg";
+import lavaplatos from "img/lavaplatos-radiante-acero-inoxidable-poceta-derecha-100-x-52-monocontrol-socoda.jpg";
+import cerradura1 from "img/cerradura-de-sobreponer-107-70-izquierda-2-bulones-yale.jpg";
+import sika from "img/sika-emulsion-51-asfaltica-x-18-kilos.jpg";
+import protectorDeVoltaje from "img/protector-de-voltaje-enchufable-nevera-120v-nicomar.jpg";
+import cerradura2 from "img/cerradura-digital-pantalla-tactil-ymf30-yale.jpg";
+import escalera from "img/escalera-aluminio-tijera-3-peldanos-1-22-mts-bstl-4-tipo-iii-90kg-verde-escalumex.jpg";
+import pulidora from "img/pulidora-profesional-7-8500-2200-w-rpm-dewalt-dwe491-b3-.jpg";
+import grifo from "img/subconjunto-grival-griferia-lavaplato-sencilla-triceta-aluvia-xunidad.jpg";
+import cinta from "img/cinta-n-23-aislante-autofundente-18mmx91m-3m.jpg";
+import bombillo from "img/bombillo-toledo-9w-dl-con-sensor-sylvania.jpg"
+
+
 const products =
     [
         {
@@ -7,7 +24,7 @@ const products =
         "category": "herramientas-y-maquinaria", 
         "stock": 80,
         "precio": 500000,
-        "img": "../img/taladro.jpg"
+        "img": taladro
         
     },
     {
@@ -17,7 +34,7 @@ const products =
         "category": "construccion",
         "stock": 80,
         "precio": 27000,
-        "img": "../img/bolsa-de-cemento.webp"
+        "img": bolsaDeCemento
         
     },
     {
@@ -27,7 +44,7 @@ const products =
         "category":"construccion",
         "stock": 80,
         "precio": 40000,
-        "img": "../img/galon-de-pintura.jpg"
+        "img": galonDePintura
     },
     {
         "id": 4,
@@ -36,7 +53,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 332484,
-        "img": "../img/inodoro.jpg"
+        "img": inodoro
     },
     {
         "id": 5,
@@ -45,7 +62,7 @@ const products =
         "category":"construccion",
         "stock": 80,
         "precio": 20000,
-        "img": "../img/teja.jpg"
+        "img": teja
         
     },
     {
@@ -55,7 +72,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 115000,
-        "img": "../img/lavaplatos-radiante-acero-inoxidable-poceta-derecha-100-x-52-monocontrol-socoda.jpg"
+        "img": lavaplatos
         
     },
     {
@@ -65,7 +82,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 100000,
-        "img": "../img/cerradura-de-sobreponer-107-70-izquierda-2-bulones-yale.jpg"
+        "img": cerradura1
     },
     {
         "id": 8,
@@ -74,7 +91,7 @@ const products =
         "category":"construccion",
         "stock": 80,
         "precio": 173000,
-        "img": "../img/sika-emulsion-51-asfaltica-x-18-kilos.jpg"
+        "img": sika
         
     },
     {
@@ -84,7 +101,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 26000,
-        "img": "../img/protector-de-voltaje-enchufable-nevera-120v-nicomar.jpg"
+        "img": protectorDeVoltaje
     },
     {
         "id": 10,
@@ -93,7 +110,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 1600000,
-        "img": "../img/cerradura-digital-pantalla-tactil-ymf30-yale.jpg"
+        "img": cerradura2
     },
     {
         "id": 11,
@@ -102,7 +119,7 @@ const products =
         "category": "herramientas-y-maquinaria",
         "stock": 80,
         "precio": 160000,
-        "img": "../img/escalera-aluminio-tijera-3-peldanos-1-22-mts-bstl-4-tipo-iii-90kg-verde-escalumex.jpg"
+        "img": escalera
         
     },
     {
@@ -112,7 +129,7 @@ const products =
         "category": "herramientas-y-maquinaria",
         "stock": 80,
         "precio": 750000,
-        "img": "../img/pulidora-profesional-7-8500-2200-w-rpm-dewalt-dwe491-b3-.jpg"
+        "img": pulidora
         
     },
     {
@@ -122,7 +139,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 70000,
-        "img": "../img/subconjunto-grival-griferia-lavaplato-sencilla-triceta-aluvia-xunidad.jpg"
+        "img": grifo
         
     },
     {
@@ -132,7 +149,7 @@ const products =
         "category": "hogar",
         "stock": 80,
         "precio": 16000,
-        "img": "../img/bombillo-toledo-9w-dl-con-sensor-sylvania.jpg"
+        "img": bombillo
     },
     {
         "id": 15,
@@ -141,7 +158,7 @@ const products =
         "category": "herramientas-y-maquinaria",
         "stock": 80,
         "precio": 20000,
-        "img": "../img/cinta-n-23-aislante-autofundente-18mmx91m-3m.jpg"
+        "img": cinta
         
     }
     ]
@@ -163,10 +180,15 @@ export const getProductsByCategory=(categoryId)=>{
     })
 }
 
-export const getProductsById=(id)=>{
-    return new Promise ((resolve)=>{
+export const getProductById=(id)=>{
+    return new Promise ((resolve, reject)=>{
         setTimeout(()=>{
-            resolve(products.find(prod=>prod.id === id))
+            const product = products.find(prod=>prod.id === id)
+            if(product){
+                resolve(product)
+            }else{
+                reject(new Error('error'))
+            }
         },500)
     })
 }
