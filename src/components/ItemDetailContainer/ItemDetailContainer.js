@@ -4,14 +4,13 @@ import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 
-const ItemDetailConatiner = () => {
+const ItemDetailConatiner = ({setCart}) => {
     const [product, setProduct] = useState({});
     const { productId } = useParams();
 
     
     
     useEffect(() => {
-    console.log("productId inside useEffect: ", productId);
         getProductById(Number (productId))
             .then((product) => {
                 setProduct(product);
@@ -20,13 +19,12 @@ const ItemDetailConatiner = () => {
                 console.log(error);
             });
     }, [productId]);
-    console.log("product: ", product);
 
     return(
         
         <div >
             <h2>Detalle del producto</h2>
-            <ItemDetail {...product} />
+            <ItemDetail {...product} setCart={setCart} />
 
         </div>
        
