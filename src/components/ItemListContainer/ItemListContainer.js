@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Spinner } from "react-bootstrap";
+import {getDocs} from "firebase/firestore"
+import {db} from "../../services/Firebase/firebaseConfig"
 
 function ItemListContainer() {
     const [products, setProducts] = useState([]);
@@ -11,18 +13,12 @@ function ItemListContainer() {
     const { categoryId } = useParams();
 
     useEffect(() => {
+        
         setIsLoading(true);
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts;
+        
+    const collectionRef = (db, 'products')
 
-        asyncFunction(categoryId)
-            .then((products) => {
-                setProducts(products);
-                setIsLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setIsLoading(false);
-            });
+        getDocs(collectionRef).then(response=>{console.log(response)})
     }, [categoryId]);
 
     return (

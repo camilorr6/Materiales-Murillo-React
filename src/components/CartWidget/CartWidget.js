@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 function CartWidget({totalQuantity}) {
     return (
     <>
-      <Button  style={{ backgroundColor: '#003049', borderColor:'#003049', padding:'1rem'}} href="#">
+      <Button  style={{ backgroundColor: '#003049', borderColor:'#003049', padding:'1rem'}}>
        <AiOutlineShoppingCart />
        <span className="badge badge-pill badge-light">{totalQuantity} </span>
       </Button> 

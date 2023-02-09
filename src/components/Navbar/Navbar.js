@@ -4,8 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import CartWidget from '../Carrito/Carrito';
-import logo from '../../img/logo-materiales-murillo.png';
+import CartWidget from '../CartWidget/CartWidget';
 import {Link} from "react-router-dom"
 import { CartContext } from 'context/CartContext';
 import { useContext } from 'react';
@@ -21,8 +20,8 @@ function Navegador() {
      {[false].map((expand) => (
         <Navbar key={expand} expand={expand} style={{padding:'0'}}>
           <Container  style={{ backgroundColor: '#fcbf49', padding:'1rem'}} fluid>
-          <Link to='/'><img src={logo} alt="logo"/></Link>
-            <CartWidget totalQuantity={totalQuantity} />
+          <Link to='/'><img src={process.env.PUBLIC_URL+'/img/logo-materiales-murillo.png'} alt="logo"/></Link>
+          <Link to='/cart'><CartWidget totalQuantity={totalQuantity} /></Link>
             <Navbar.Toggle style={{ backgroundColor: '#eae2b7', padding:'1rem'}} aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}

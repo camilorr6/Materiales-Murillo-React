@@ -1,24 +1,22 @@
 import Figure from 'react-bootstrap/Figure';
 import Counter from '../ItemCount/ItemCount';
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from 'context/CartContext';
 import { Link } from 'react-router-dom';
-import { Button } from "react-bootstrap";
+import { Button, Toast } from "react-bootstrap";
+
 
 
 
 const ItemDetail = ({id,nombre,img,precio,descripcion,stock, setCart})=>{
-    
-    const [count,setCount] = useState(0)
-
+    const [showToast, setShowToast] = useState(false);
+       
     const {addItem, isInCart} = useContext(CartContext)
 
     const handleOnAdd=(count)=>{
-      
-      setCount(parseInt(count))
 
-      addItem({id, nombre, precio, count})
-      console.log(id)
+      addItem({id, nombre, precio, count, descripcion, img})
+      setShowToast(true)
     }
 
 
@@ -36,9 +34,17 @@ const ItemDetail = ({id,nombre,img,precio,descripcion,stock, setCart})=>{
           <p>{descripcion}</p>
           {
                     isInCart(id) ? (
+                      <>
                       <Button variant='primary'>
                         <Link style={{textDecoration: 'none', color: 'white'}} to='/cart'>Terminar compra</Link>
                       </Button>
+                      <Toast show={showToast} onClose={() => setShowToast(false)}>
+        <Toast.Header>
+          <strong className="mr-auto">Agregaste un producto al Carrito</strong>
+        </Toast.Header>
+        <Toast.Body>Agregaste  {nombre}  </Toast.Body>
+      </Toast>
+      </>
                     ) : (
                       <Counter stock={stock} isInCart={isInCart} nombre={nombre} handleOnAdd={handleOnAdd} />
                     )
