@@ -1,5 +1,5 @@
-import Button from 'react-bootstrap/Button';
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import Button from 'react-bootstrap/Button'
+import { AiOutlineShoppingCart } from "react-icons/ai"
 
 function CartWidget({totalQuantity}) {
     return (

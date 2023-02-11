@@ -1,21 +1,22 @@
 import { useContext } from "react";
-import {CartContext} from "context/CartContext";
+import {CartContext} from "../../context/CartContext"
 import CartItem from "../CartItem/CartItem"
+import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom'
 
 const CartContainer = () =>{
 
 
-const {cart, deleteItem} = useContext(CartContext)
-
-const handleRemove = (id) => {
-    setCart(cart.filter(item => item.id !== id));
-  }
-
+const {cart, getTotalPrice, getSubtotal} = useContext(CartContext)
+ 
     return(
         <div>
-            <h2>Tu Carrtito</h2>
-            {cart.map(item=><CartItem key={item.id} {...item}  deleteItem={handleRemove}/>)}
-
+            <h2>Tu Carrito</h2>
+            {cart.map(item=><CartItem key={item.id} {...item}  getSubtotal={getSubtotal} />)}
+            <h3>El valor total de tu compra es {getTotalPrice()}$ </h3>
+            <Button variant='primary' style={{margin: '1rem'}} >
+                <Link style={{textDecoration: 'none', color: 'white'}} to='/checkout'>Ir al Checkout</Link>
+            </Button>
         </div>
     )
 }

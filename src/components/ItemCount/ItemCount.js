@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Button } from "react-bootstrap";
+import React, { useState } from 'react'
+import { Button } from "react-bootstrap"
 
 const Counter = ({ stock, nombre, handleOnAdd }) => {
   const [count, setCount] = useState(1);
 
   const handleIncrement = () => {
     if (count < stock) {
-      setCount(count + 1);
+      setCount(count + 1)
     }
   };
 
   const handleDecrement = () => {
     if (count > 1) {
-      setCount(count - 1);
+      setCount(count - 1)
     }
   };
 

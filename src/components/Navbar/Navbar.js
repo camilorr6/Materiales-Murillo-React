@@ -1,13 +1,12 @@
-import SearchBar from '../SearchBar/SearchBar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import CartWidget from '../CartWidget/CartWidget';
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import Offcanvas from 'react-bootstrap/Offcanvas'
+import CartWidget from '../CartWidget/CartWidget'
 import {Link} from "react-router-dom"
-import { CartContext } from 'context/CartContext';
-import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext'
+import { useContext } from 'react'
 
 function Navegador() {
 
@@ -50,7 +49,6 @@ function Navegador() {
                     <Link style={{textDecoration: 'none', color: 'black'}} to='/category/herramientas-y-maquinaria'><NavDropdown.Item href="#action3">Herramientas y Maquinaria</NavDropdown.Item></Link>                   
                   </NavDropdown>
                 </Nav>
-                <SearchBar/> 
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

@@ -1,8 +1,14 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useContext } from "react";
+import {CartContext} from "../../context/CartContext";
 
-const CartItem = ({ id, nombre, precio, img, count, deleteItem }) => {
+
+const CartItem = ({ id, nombre, precio, img, count, getSubtotal}) => {
+
+  
+const {deleteItem} = useContext(CartContext)
   return (
     <div>
       <Card style={{ height: '14rem' }}>
@@ -11,7 +17,7 @@ const CartItem = ({ id, nombre, precio, img, count, deleteItem }) => {
           <div style={{ width: '100%', marginRight: '10px' }}>
             <Card.Title>${precio} c/u</Card.Title>
             <Card.Text>
-              Subtotal={}
+              Subtotal={getSubtotal(id)}$
             </Card.Text>
             <Button variant="danger" onClick={() => {deleteItem(id)}}>Eliminar Producto</Button>
           </div>

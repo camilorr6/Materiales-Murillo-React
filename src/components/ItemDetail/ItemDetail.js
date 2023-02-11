@@ -1,15 +1,15 @@
-import Figure from 'react-bootstrap/Figure';
-import Counter from '../ItemCount/ItemCount';
-import { useContext, useState } from 'react';
-import { CartContext } from 'context/CartContext';
-import { Link } from 'react-router-dom';
-import { Button, Toast } from "react-bootstrap";
+import Figure from 'react-bootstrap/Figure'
+import Counter from '../ItemCount/ItemCount'
+import { useContext, useState } from 'react'
+import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
+import { Button, Toast } from "react-bootstrap"
 
 
 
 
 const ItemDetail = ({id,nombre,img,precio,descripcion,stock, setCart})=>{
-    const [showToast, setShowToast] = useState(false);
+    const [showToast, setShowToast] = useState(false)
        
     const {addItem, isInCart} = useContext(CartContext)
 
@@ -35,7 +35,10 @@ const ItemDetail = ({id,nombre,img,precio,descripcion,stock, setCart})=>{
           {
                     isInCart(id) ? (
                       <>
-                      <Button variant='primary'>
+                      <Button variant='primary' style={{margin: '1rem'}}>
+                        <Link style={{textDecoration: 'none', color: 'white'}} to='/'>Volver al Catálogo</Link>
+                      </Button>
+                      <Button variant='primary' style={{margin: '1rem'}} >
                         <Link style={{textDecoration: 'none', color: 'white'}} to='/cart'>Terminar compra</Link>
                       </Button>
                       <Toast show={showToast} onClose={() => setShowToast(false)}>

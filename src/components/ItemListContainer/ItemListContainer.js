@@ -1,30 +1,27 @@
-import { getProducts, getProductsByCategory}  from "../../Asyncmock"
 import ItemList from "../ItemList/ItemList"
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Spinner } from "react-bootstrap";
-import {getDocs} from "firebase/firestore"
-import {db} from "../../services/Firebase/firebaseConfig"
+import { Spinner } from "react-bootstrap"
+import{getProducts} from "../../services/Firebase/firestore/products.js"
+import useAsync from "../../hooks/useAsync"
+import { useTitle } from "../../hooks/useTitle"
+
+
+
 
 function ItemListContainer() {
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+
+    useTitle("Todos los productos", [])
 
     const { categoryId } = useParams();
 
-    useEffect(() => {
-        
-        setIsLoading(true);
-        
-    const collectionRef = (db, 'products')
+    const getProductsWithCategory=()=>getProducts(categoryId)
 
-        getDocs(collectionRef).then(response=>{console.log(response)})
-    }, [categoryId]);
+    const {data:products,loading} = useAsync(getProductsWithCategory, [categoryId])
 
     return (
         <div>
             <h1>Listado de productos</h1>
-            {isLoading ? (
+            {loading ? (
                 <Spinner animation="border" variant="primary" />
             ) : (
                 <ItemList products={products} />

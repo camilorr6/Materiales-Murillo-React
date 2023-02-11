@@ -19,11 +19,9 @@ export const CartProvider= ({children})=>{
     
     const isInCart=(id)=> cart.some(prod => id === prod.id)
 
-    const deleteItem = (productToDelete)=>{
-      console.log(productToDelete)
-     
-      setCart(cart.filter(i=>i !== productToDelete.id))
-      console.log(cart)
+    const deleteItem = (id) => {
+      setCart(cart.filter(item => item.id !== id))
+
     }
       
     const getTotalQuantity =()=>{
@@ -37,18 +35,32 @@ export const CartProvider= ({children})=>{
 
     const totalQuantity = getTotalQuantity()
 
-/*     const getSubtotal=(item)=>{
-      let subTot=0
-
-      subTot= item.count * item.precio
-
-      return subTot
+    const clearCart= ()=>{
+      setCart([])
     }
 
-    const subtotalItem = getSubtotal() */
+    const getSubtotal = id => {
+      const item = cart.find(item => item.id === id)
+      return item ? item.precio * item.count : 0
+    };
+    
+
+    const getTotalPrice = () => {
+      if (cart.length === 0) {
+        return 0
+      }
+      let total = 0
+      cart.forEach(item => {
+        total += item.precio * item.count;
+      });
+      return total
+    };
+  
+    const total=getTotalPrice()
+
 
     return(
-        <CartContext.Provider value={{addItem, isInCart, totalQuantity, cart, deleteItem}}>
+        <CartContext.Provider value={{addItem, isInCart, totalQuantity, cart, deleteItem, setCart,getTotalPrice, getSubtotal, total, clearCart}}>
             {children}
         </CartContext.Provider>
         
