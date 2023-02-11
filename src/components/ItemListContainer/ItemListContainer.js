@@ -10,7 +10,7 @@ import { useTitle } from "../../hooks/useTitle"
 
 function ItemListContainer() {
 
-    useTitle("Todos los productos", [])
+    useTitle("Materiales Murillo", [])
 
     const { categoryId } = useParams();
 
